@@ -6,18 +6,14 @@
 		<CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
 		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	</PropertyGroup>
-	<ItemGroup>
-		<PackageReference
-			Include="StyleCop.Analyzers"
-			Version="1.2.0-beta.435"
-			PrivateAssets="all"
-			Condition="$(MSBuildProjectExtension) == '.csproj'"
-		/>
-		<PackageReference
-			Include="SonarAnalyzer.CSharp"
-			Version="8.49.0.57237"
-			PrivateAssets="all"
-			Condition="$(MSBuildProjectExtension) == '.csproj'"
-		/>
+	<ItemGroup Condition="'$(MSBuildProjectExtension)' != '.dcproj'">
+		<PackageReference Include="StyleCop.Analyzers" Version="1.2.0-beta.556">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="SonarAnalyzer.CSharp" Version="9.25.0.90414">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 </Project>
